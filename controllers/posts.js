@@ -110,9 +110,9 @@ module.exports.delete = function(req, res){
     // converto il DB in JSON
     const json = JSON.stringify(posts, null, 2);
     fs.writeFileSync(path.resolve(__dirname, "..", "db", "db.json"), json);
-    
+
     if(check){ 
-        res.end("ricetta concellata")
+        res.end("ricetta cancellata")
     } else{
         res.status(404).send(`<h1 style="text-align: center;"> il post relativo a ${postSlug} non è stato trovato </h1>`)
     }   
