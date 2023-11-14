@@ -1,13 +1,17 @@
 const express = require('express');
 const router = express.Router();
 // collego il json dei posts dentro la carte db a post.js
-const posts = require("../db/db.js");
+const posts = require("../db/db.json");
 // Collego il controller
 const postsController = require("../controllers/posts.js");
+
+
 
 router.get('/', postsController.index);
 
 router.get('/create', postsController.create);
+
+router.post('/', postsController.store);
 
 router.get('/:slug', postsController.show);
 

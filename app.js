@@ -1,6 +1,14 @@
 const express = require('express');
 const app = express();
 const dotenv = require("dotenv").config();
+
+
+// configuro express per leggere i dati in formato json
+app.use(express.json());
+
+// // configuro express per leggere i dati in formato x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
 // configuro i file statici
 app.use(express.static("public"));
 
@@ -8,12 +16,10 @@ const port = process.env.PORT || 3000;
 
 // controllerts
 const home = require("./controllers/home.js");
-// const posts = require("./controllers/posts.js");
-// routes
+// routes dove dentro verrà collegato il controllere dei posts
 const routerPosts = require('./routers/posts.js');
 
-// app.get("/", home.index);
-// app.get("/posts", posts.index);
+
 app.use("/posts", routerPosts);
 
 
