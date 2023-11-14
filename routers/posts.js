@@ -13,6 +13,8 @@ router.get('/create', postsController.create);
 
 router.post('/', postsController.store);
 
+router.delete('/:slug', postsController.delete);
+
 router.get('/:slug', postsController.show);
 
 router.get('/:slug/download', postsController.download);
